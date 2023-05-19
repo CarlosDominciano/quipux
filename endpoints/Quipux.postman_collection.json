@@ -1,0 +1,250 @@
+{
+	"info": {
+		"_postman_id": "6480fe9b-7576-4ba1-9589-70933a5ee25b",
+		"name": "Quipux",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20354549"
+	},
+	"item": [
+		{
+			"name": "Music",
+			"item": [
+				{
+					"name": "findAllMusics",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/musics",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"musics"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createMusic",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Devil Trigger\",\r\n    \"artist\": \"Casey Edwards\",\r\n    \"album\": \"Devil May Cry\",\r\n    \"creationYear\": 2019,\r\n    \"genre\": \"Eletronic Rock\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/musics",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"musics"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findMusicById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/musics/:idMusic",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"musics",
+								":idMusic"
+							],
+							"variable": [
+								{
+									"key": "idMusic",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteMusicById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/musics/:idMusic",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"musics",
+								":idMusic"
+							],
+							"variable": [
+								{
+									"key": "idMusic",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Playlist",
+			"item": [
+				{
+					"name": "createPlaylist",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"DMC\",\r\n    \"description\": \"Jackpot!\",\r\n    \"idMusics\": [1]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/playlists",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"playlists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletePlaylistByName",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/playlists/:playlistName",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"playlists",
+								":playlistName"
+							],
+							"variable": [
+								{
+									"key": "playlistName",
+									"value": "Rockzão"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findPlaylistByName",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/playlists/:playlistName",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"playlists",
+								":playlistName"
+							],
+							"variable": [
+								{
+									"key": "playlistName",
+									"value": "Rockzão"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAllPlaylists",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/playlists",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"playlists"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
