@@ -25,12 +25,31 @@ function Home() {
 
     //Aqui ficaria todas as playlists listadas e organizadas, cada uma pondendo ser expandida para ver as músicas 
     //todas as suas informações
-    //Passei o dia todo tentando resolcer esse problema, então esse final acabou ficando sem css :(
+    //Passei o dia todo tentando resolcer esse problema, corri agora para fazer esse final
+    //então esse final acabou ficando sem css :(
     
 
     return (
         <>
             <Header/>
+            <CardPlaylist
+            key="1" 
+            id="1"
+            name="DMC"
+            description="Lets rock" 
+            musics="7"/>
+            <CardPlaylist
+            key="1" 
+            id="1"
+            name="DMC"
+            description="Lets rock" 
+            musics="7"/>
+            <CardPlaylist
+            key="1" 
+            id="1"
+            name="DMC"
+            description="Lets rock" 
+            musics="7"/>
             {
             playlists.map((playlist, index) => {
                         return (    
