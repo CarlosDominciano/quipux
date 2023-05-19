@@ -10,7 +10,22 @@ function AddMusic() {
     return (
         <>
             <Header/>
+            <section className="add-playlist">
+                <div className="container">
+                    <form id="form_add_playlist" action="" method="post">
+                        <label htmlFor="name">Name</label>
+                        <input placeholder="Devil's Never Cry" type="text" id="name"/>
 
+                        <label htmlFor="description">Description</label>
+                        <input placeholder="Let's rock baby" type="text" id="description"/>
+
+                        <label htmlFor="musics">Musics</label>
+                        <input placeholder="Musics" type="text" id="musics"/>
+
+                        <button id="btn_add_playlist" type="submit">Create Playlist</button>
+                    </form>
+                </div>
+            </section>
             <Footer/>
         </>
     )

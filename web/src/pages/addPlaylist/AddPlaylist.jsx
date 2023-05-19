@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Header from "../../components/header/Header.jsx"
 import Footer from "../../components/footer/Footer.jsx"
 import api from "../../api.js";
+import axios from "axios";
 
 import "./AddPlaylist.css"
 
@@ -15,7 +16,7 @@ function AddPlaylist() {
     useEffect(() => { listMusics() }, [] )
 
     function listMusics() {
-        api.get()
+        api.get("/musics")
         .then(function (response) {
             console.log(response.data);
             setMusics(response.data);
@@ -26,7 +27,7 @@ function AddPlaylist() {
     }
 
     //Ele pegaria os dados e os deixaria salvos em um array para que o usuário pudesse utilizar disso depois para
-    //colocar esses dados na playlist, de preferência através de um <select> </select>
+    //colocar esses dados na playlist, de preferência através de um 
 
     return (
         <>
