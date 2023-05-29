@@ -1,6 +1,9 @@
 package com.app.quipux.controllers;
 
 import com.app.quipux.exceptions.MusicAlreadyExistsException;
+import com.app.quipux.exceptions.MusicNotFoundException;
+import com.app.quipux.exceptions.MusicYearIsAfterTodayException;
+import com.app.quipux.exceptions.MusicYearIsBeforeThanTwoYearsException;
 import com.app.quipux.models.MusicModel;
 import com.app.quipux.services.MusicService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Controller
@@ -21,6 +25,10 @@ public class MusicController {
 
     @PostMapping
     public ResponseEntity<MusicModel> createMusic(@RequestBody @Valid MusicModel musicModel) {
+        if (musicModel.getReleaseDate().isAfter(LocalDateTime.now().toLocalDate()))
+            throw new MusicYearIsAfterTodayException();
+//        if (musicModel.getReleaseDate().isBefore(LocalDateTime.now().toLocalDate().minusYears(2)))
+//            throw new MusicYearIsBeforeThanTwoYearsException();
         return ResponseEntity.status(HttpStatus.CREATED).body(musicService.save(musicModel));
     }
 
