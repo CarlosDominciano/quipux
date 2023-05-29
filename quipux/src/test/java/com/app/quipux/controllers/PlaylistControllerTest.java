@@ -2,6 +2,8 @@ package com.app.quipux.controllers;
 
 import com.app.quipux.dtos.requests.PlaylistRequest;
 import com.app.quipux.exceptions.MusicNotFoundException;
+import com.app.quipux.exceptions.MusicYearIsAfterTodayException;
+import com.app.quipux.exceptions.MusicYearIsBeforeThanTwoYearsException;
 import com.app.quipux.exceptions.PlaylistNameAlreadyExistsException;
 import com.app.quipux.models.MusicModel;
 import com.app.quipux.models.PlaylistModel;
@@ -21,6 +23,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -42,6 +45,39 @@ public class PlaylistControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
+
+    @Autowired
+    private MusicController musicController;
+
+   @Test
+   @DisplayName("Music: Return throw year now")
+   public void testPostMusicYearHiggerThanToday() {
+       MusicModel musicModel = new MusicModel();
+       musicModel.setReleaseDate(LocalDate.parse("2024-05-05"));
+       assertThrows(MusicYearIsAfterTodayException.class, () -> {
+           musicController.createMusic(musicModel);
+       });
+   }
+//    @Test
+//    @DisplayName("Music: Return throw year 2 years")
+//    public void testPostMusicYearOlderThanTwoYears() {
+//        MusicModel musicModel1 = new MusicModel();
+//        musicModel1.setReleaseDate(LocalDate.parse("2021-05-05"));
+//        MusicModel musicModel2 = new MusicModel();
+//        musicModel2.setReleaseDate(LocalDate.parse("2020-05-05"));
+//        MusicModel musicModel3 = new MusicModel();
+//        musicModel3.setReleaseDate(LocalDate.parse("2019-05-05"));
+//        assertThrows(MusicYearIsBeforeThanTwoYearsException.class, () -> {
+//            musicController.createMusic(musicModel1);
+//        });
+//        assertThrows(MusicYearIsBeforeThanTwoYearsException.class, () -> {
+//            musicController.createMusic(musicModel2);
+//        });
+//        assertThrows(MusicYearIsBeforeThanTwoYearsException.class, () -> {
+//            musicController.createMusic(musicModel3);
+//        });
+//    }
+
 
     @Test
     @DisplayName("Playlist: Return already exists exception")
