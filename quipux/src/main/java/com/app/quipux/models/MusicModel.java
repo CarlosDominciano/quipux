@@ -1,9 +1,15 @@
 package com.app.quipux.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.aspectj.lang.annotation.Before;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "tb_musics")
@@ -33,6 +39,11 @@ public class MusicModel {
     @NotBlank(message = "Music genre cannot be blank")
     @Column(nullable = false)
     private String genre;
+
+    @Column(nullable = false)
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    private LocalDate releaseDate;
 
     public MusicModel() {
     }
@@ -92,5 +103,13 @@ public class MusicModel {
 
     public void setGenre(String genre) {
         this.genre = genre;
+    }
+
+    public LocalDate getReleaseDate() {
+        return releaseDate;
+    }
+
+    public void setReleaseDate(LocalDate releaseDate) {
+        this.releaseDate = releaseDate;
     }
 }
