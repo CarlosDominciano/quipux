@@ -1,0 +1,62 @@
+.card-music {
+    background-color: var(--clrLowPrimary);
+    color: var(--clrHighPrimary);
+    border-radius: 0.3em;
+    padding: 1em;
+    margin: 1em;
+    height: 200px;
+    width: 80%;
+    justify-self: center;
+}
+
+.card-music .container-card-music {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.card-music .container-card-music span {
+    font-size: 10px;
+}
+
+.card-music .remove-music-btn {
+    background-color: var(--clrPrimary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 0.5em;
+    padding: 0.7em;
+    border: 2px solid var(--clrHighPrimary);
+    color: var(--clrHighPrimary);
+    font-family: var(--fontPrimary);
+    transition: all 0.2s ease-in-out;
+}
+
+.card-music .add-music-btn {
+    background-color: var(--clrSelected);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 0.5em;
+    padding: 0.7em;
+    border: 2px solid var(--clrHighPrimary);
+    color: var(--clrHighPrimary);
+    font-family: var(--fontPrimary);
+    transition: all 0.2s ease-in-out;
+}
+
+.card-music .container-card-music button:hover {
+    cursor: pointer;    
+    background-color: var(--clrLowPrimary);
+    transform: scale(1.1);
+}
+
+
+.card-music .container-card-music button:active {
+    transition: all 0s;
+    cursor: pointer;    
+    background-color: var(--clrLowPrimary);
+    transform: scale(1.03);
+}
