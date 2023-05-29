@@ -1,6 +1,65 @@
-.CardPlaylist {
-    background-color: rgb(128, 128, 128);
+.card-playlist {
+    background-color: var(--clrLowPrimary);
+    color: var(--clrHighPrimary);
     padding: 1em;
     margin: 1em;
-    
+    height: 200px;
+    width: 200px;
+    justify-self: center;
+}
+
+.card-playlist .container-card-playlist {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.card-playlist .container-card-playlist .delete-playlist {
+    position: absolute;
+    align-self: flex-end;
+    background-color: var(--clrPrimary);
+    padding: 3px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2em;
+    border: none;
+    color: var(--clrHighPrimary);
+    font-family: var(--fontPrimary);
+}
+
+.card-playlist .container-card-playlist .delete-playlist:hover {
+    cursor: pointer;
+    background-color: var(--clrSecondary);
+}
+
+.card-playlist .container-card-playlist button {
+    background-color: var(--clrContrastPrimary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 0.5em;
+    padding: 0.7em;
+    border: 2px solid var(--clrHighPrimary);
+    color: var(--clrHighPrimary);
+    font-family: var(--fontPrimary);
+    transition: all 0.2s ease-in-out;
+}
+
+.card-playlist .container-card-playlist button:hover {
+    cursor: pointer;    
+    background-color: var(--clrContrastSecondary);
+    transform: scale(1.05);
+}
+
+
+.card-playlist .container-card-playlist button:active {
+    transition: all 0s;
+    cursor: pointer;    
+    background-color: var(--clrLowPrimary);
+    transform: scale(1.03);
 }
