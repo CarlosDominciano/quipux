@@ -2,20 +2,21 @@ import Header from "../../components/header/Header.jsx"
 import Footer from "../../components/footer/Footer.jsx"
 import CardPlaylist from "../../components/cardPlaylist/CardPlaylist.jsx";
 import api from "../../api.js";
-import { useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react";
+import './home.css'
 
 function Home() {
 
-    const navigate = useNavigate()
     const [playlists, setPlaylists] = useState( [] )
 
-    useEffect(() => { listPlaylists() }, [] )
+    useEffect(() => {
+        listPlaylists() 
+    }, [] )
+    
 
     function listPlaylists() {
         api.get("/playlists")
         .then(function (response) {
-            console.log(response.data);
             setPlaylists(response.data);
         })
         .catch((error) => {
@@ -23,46 +24,42 @@ function Home() {
         });
     }
 
-    //Aqui ficaria todas as playlists listadas e organizadas, cada uma pondendo ser expandida para ver as músicas 
-    //todas as suas informações
-    //Passei o dia todo tentando resolcer esse problema, corri agora para fazer esse final
-    //então esse final acabou ficando sem css :(
-    
+    function deletePlaylist(name) {
+        api.delete(`/playlists/${name}`)
+        .then(function (response) {
+            setPlaylists(response.data);
+            listPlaylists()
+        })
+        .catch((error) => {
+            console.log(error)
+        });
+    }
 
     return (
         <>
             <Header/>
-            <CardPlaylist
-            key="1" 
-            id="1"
-            name="DMC"
-            description="Lets rock" 
-            musics="7"/>
-            <CardPlaylist
-            key="1" 
-            id="1"
-            name="DMC"
-            description="Lets rock" 
-            musics="7"/>
-            <CardPlaylist
-            key="1" 
-            id="1"
-            name="DMC"
-            description="Lets rock" 
-            musics="7"/>
-            {
-            playlists.map((playlist, index) => {
-                        return (    
-                            <CardPlaylist 
-                                key={playlist.id} 
+            <section className="home">
+                <div className="container-home">
+                {   
+                    playlists.length > 0 ? (
+                        playlists.map((playlist, index) => (
+                            <CardPlaylist
+                                key={playlist.id}
                                 id={playlist.id}
                                 name={playlist.name}
-                                description={playlist.description} 
-                                musics={playlist.musics.length} 
+                                description={playlist.description}
+                                musics={playlist.musics}
+                                functionDeletePlaylist={deletePlaylist}
                             />
-                        );
-                    })
-            }
+                        )
+                    )
+                    ) : (
+                    <p>No playlists found</p>
+                    )
+                }
+                </div>
+            </section>
+            
             <Footer/>
         </>
     )

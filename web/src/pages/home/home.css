@@ -1,0 +1,11 @@
+.home {
+    margin: 2em 0;
+    width: 100%;
+}
+
+.home .container-home {
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+}
