@@ -24,6 +24,31 @@ import java.util.List;
 @RequestMapping("/playlists")
 public class PlaylistController {
 
+    //Endpoint para criar playlist:
+    //Método: POST
+    //URL: /api/playlists
+    //Descrição: Cria uma nova playlist.
+    //Corpo da requisição: Name, Description e Object(Musics).
+    //Resposta: Objeto de playlist recém-criado.
+
+    //Endpoint para recuperar todas as playlists:
+    //Método: GET
+    //URL: /api/playlists
+    //Descrição: Recupera todas as playlists existentes.
+    //Resposta: Array de objetos de playlists.
+
+    //Endpoint para recuperar uma playlist:
+    //Método: GET
+    //URL: /api/playlists/nomeDaPlaylist
+    //Descrição: Recupera uma playlist existente.
+    //Resposta: objeto de playlist.
+
+    //Endpoint para recuperar playlist:
+    //Método: DELETE
+    //URL: /api/playlists/nomeDaPlaylist
+    //Descrição: Exclui uma playlist existente.
+    //Resposta: Status 204.
+
     @Autowired
     PlaylistService playlistService;
 
@@ -68,7 +93,7 @@ public class PlaylistController {
         PlaylistModel deletedPlaylist = playlistService.findByName(playlistName);
         playlistService.delete(deletedPlaylist);
         String responseBody = String.format("This playlist: %s, was deleted", deletedPlaylist.getName());
-        // response não é mostrado no body pq eh NO_CONTENT
+        // response não é mostrado no body pq é NO_CONTENT
         return ResponseEntity.status(HttpStatus.NO_CONTENT).body(responseBody);
     }
 }

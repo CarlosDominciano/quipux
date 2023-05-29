@@ -20,6 +20,31 @@ import java.util.List;
 @RequestMapping("/musics")
 public class MusicController {
 
+    //Endpoint para criar playlist:
+    //Método: POST
+    //URL: /api/musics
+    //Descrição: Cria uma nova musica.
+    //Corpo da requisição: Title, Artist, Genre, ReleaseDate, CreationYear, Album.
+    //Resposta: Objeto de musica recém-criado.
+
+    //Endpoint para recuperar todas as musicas:
+    //Método: GET
+    //URL: /api/musics
+    //Descrição: Recupera todas as musicas existentes.
+    //Resposta: Array de objetos de musicas.
+
+    //Endpoint para recuperar uma musica:
+    //Método: GET
+    //URL: /api/musics/idDaMusica
+    //Descrição: Recupera uma musica existente.
+    //Resposta: objeto de musica.
+
+    //Endpoint para recuperar playlist:
+    //Método: DELETE
+    //URL: /api/musics/idDaMusica
+    //Descrição: Exclui uma musica existente.
+    //Resposta: Status 204.
+
     @Autowired
     MusicService musicService;
 
@@ -54,7 +79,7 @@ public class MusicController {
         MusicModel deletedMusic = musicService.findById(idMusic).get();
         musicService.delete(deletedMusic);
         String responseBody = String.format("This music: %s, was deleted", deletedMusic.getTitle());
-        return ResponseEntity.status(HttpStatus.OK).body(responseBody);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).body(responseBody);
     }
 
 }
