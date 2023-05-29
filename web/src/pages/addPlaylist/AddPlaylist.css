@@ -3,27 +3,41 @@
     width: 100%;
 }
 
-.add-playlist .container {
+.add-playlist .container-add-playlist {
     display: flex;
     flex-direction: row;
     width: 90%;
     margin: auto;
     justify-content: space-around;
-    align-items: flex-end;
 }
 
-.add-playlist img {
-    width: 20%;
+.add-playlist .container-add-playlist .form {
+    width: 50%;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    padding: 1em;
+    align-items: center;
+}
+
+.add-playlist .container-add-playlist .musics {
+    width: 50%;
+    height: 400px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-content: center;
+    padding: 1em;
+    overflow-y: scroll;
 }
 
 .add-playlist form {
-    background-color: var(--clrLowPrimaryOpacity);
+    background-color: var(--clrLowPrimary);
     display: flex;
     flex-direction: column;
     border-radius: 14px;
     padding: 5em 1em;
     align-items: center;
-    width: 33%;
+    width: 70%;
 }
 
 .add-playlist form input {
