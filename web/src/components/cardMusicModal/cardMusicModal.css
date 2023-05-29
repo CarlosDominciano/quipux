@@ -1,0 +1,24 @@
+.card-music-modal {
+    background-color: var(--clrSecondary);
+    color: var(--clrHighPrimary);
+    border-radius: 0.3em;
+    padding: 1em;
+    margin: 1em;
+    height: 200px;
+    width: 80%;
+    justify-self: center;
+    width: 200px;
+}
+
+.card-music-modal .container-card-music-modal {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.card-music .container-card-music-modal span {
+    font-size: 8px;
+}
+
