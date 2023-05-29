@@ -1,0 +1,79 @@
+.modal-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 9999;
+}
+
+.modal-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--clrLowPrimary); 
+    padding: 20px;
+    height: 70%;
+    width: 80%; 
+    z-index: 10000; 
+    border-radius: 0.3em;
+    overflow-y: scroll;
+}
+
+.modal-content .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content .content h2:nth-child(1) {
+    font-size: larger;
+}
+
+.modal-content .content h2 {
+    margin: 1em;
+}
+
+.modal-content .cards {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin: 2em;
+    width: 100%;
+}
+
+.modal-content .no-cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.modal-content button {
+    background-color: var(--clrPrimary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 0.5em;
+    padding: 0.7em;
+    border: 2px solid var(--clrHighPrimary);
+    color: var(--clrHighPrimary);
+    font-family: var(--fontPrimary);
+    transition: all 0.2s ease-in-out;
+    margin-top: 1em;
+}
+
+.modal-content button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    background-color: var(--clrSecondary);
+}
+
+.modal-content button:active {
+    transform: scale(1.05);
+    background-color: var(--clrLowPrimary);
+}
